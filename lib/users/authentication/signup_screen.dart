@@ -17,6 +17,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   var passwordController = TextEditingController();
   var isObsecure = true.obs;
 
+  validateUserEmail(){
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +40,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 285,
                     child: Image.asset('images/register.jpg'),
                   ),
-
 
                   //signup screen signup form
                   Padding(
@@ -207,7 +210,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     color: Colors.black,
                                     borderRadius: BorderRadius.circular(30),
                                     child: InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        if(formKey.currentState!.validate()){
+                                          //validate the email
+                                          validateUserEmail();
+                                        }
+                                      },
                                       borderRadius: BorderRadius.circular(30),
                                       child: const Padding(
                                         padding: EdgeInsets.symmetric(
